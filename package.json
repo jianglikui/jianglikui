@@ -1,0 +1,19 @@
+{
+  "name": "jianglikui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jianglikui/jianglikui.git",
+  "author": "jlk <jianglikui@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server ./src/index.js"
+  },
+  "dependencies": {
+    "webpack": "^4.42.1"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.0.4",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

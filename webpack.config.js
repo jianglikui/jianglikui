@@ -4,7 +4,9 @@ var path = require("path");
 var webpackConfig = {
   devServer: {
     hot: true,
-    inline: true,
+    port: 3000,
+    // noInfo: true,
+    quiet: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

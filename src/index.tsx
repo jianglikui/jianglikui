@@ -1,12 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as styles from "./index.css";
 import "./commonCss/index.css";
-import { FaUserClock } from "react-icons/fa";
+import Launcher from "./Launcher";
+if (module.hot) {
+  module.hot.accept();
+}
 
 ReactDOM.render(
   <>
-    <FaUserClock />
+    <Launcher />
   </>,
   document.getElementById("root")
 );

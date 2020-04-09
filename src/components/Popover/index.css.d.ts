@@ -1,6 +1,10 @@
 declare namespace IndexCssModule {
   export interface IIndexCss {
-    demo: string;
+    content: string;
+    hide: string;
+    hideAnim: string;
+    show: string;
+    showAnim: string;
   }
 }
 

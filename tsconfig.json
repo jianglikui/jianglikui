@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "/built",
+    "allowJs": true,
+    "target": "es5",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "module": "commonJs",
+    "jsx": "react",
+    "typeRoots": ["./node_modules/@types/", "./typings"]
+  },
+  "include": ["./src/**/*"]
+}

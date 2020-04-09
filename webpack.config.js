@@ -1,5 +1,6 @@
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var path = require("path");
+var CopyWebpackPlugin = require("copy-webpack-plugin");
 
 var webpackConfig = {
   entry: "./src/index.tsx",
@@ -42,12 +43,26 @@ var webpackConfig = {
           },
         ],
       },
+      //图片
+      {
+        test: /\.(jpg|png|gif|bmp|jpeg)$/, //正则表达式匹配图片规则
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 1000,
+              name: "images/[name]-[hash:8].[ext]",
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
+    new CopyWebpackPlugin([{ from: "./src/assets", to: "assets" }]),
   ],
 };
 

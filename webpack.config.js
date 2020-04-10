@@ -1,8 +1,12 @@
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
+var path = require("path");
 
 var webpackConfig = {
   entry: "./src/index.tsx",
+  output: {
+    path: path.resolve(__dirname, "docs"),
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },

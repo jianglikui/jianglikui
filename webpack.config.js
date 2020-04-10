@@ -4,9 +4,6 @@ var path = require("path");
 
 var webpackConfig = {
   entry: "./src/index.tsx",
-  output: {
-    path: path.resolve(__dirname, "docs"),
-  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },

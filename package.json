@@ -6,7 +6,7 @@
   "author": "jlk <jianglikui@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && git add . && git commit -m 'build'&& git checkout master",
     "start": "nodemon --watch webpack.config.js --exec webpack-dev-server"
   },
   "dependencies": {

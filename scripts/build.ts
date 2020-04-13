@@ -11,16 +11,53 @@ async function main() {
   await exec(`git push`);
   await exec(`git checkout master`);
   await exec(`git merge ${branch}`);
-  await cleanMasterBranch();
+  cleanMasterBranch({
+    path: ".",
+    excludesFloder: ["dist", ".git", "node_modules"],
+    excludesFile: ["yarn-error.log"]
+  });
   await exec(`git pull`);
   await exec(`git push`);
   await exec(`git checkout ${branch}`);
 }
 
-function cleanMasterBranch() {
-  return new Promise(resolve => {
-    resolve();
-  });
+interface FileSelector {
+  path: string;
+  excludesFile?: Array<string>;
+  excludesFloder?: Array<String>;
+}
+
+function cleanMasterBranch(fileSelector: FileSelector) {
+  var fs = require("fs");
+
+  function deleteall(path: string) {
+    var files = [];
+    if (fs.existsSync(path)) {
+      files = fs.readdirSync(path);
+      files.forEach(function(file: string, index: number) {
+        var curPath = path + "/" + file;
+        if (fs.statSync(curPath).isDirectory()) {
+          // recurse
+          const canDel =
+            fileSelector.excludesFloder.filter(f => {
+              return curPath.substr(0, f.length) !== "./" + f;
+            }).length === 0;
+          console.log(canDel, "recurse", curPath);
+
+          if (canDel && curPath !== path) {
+            deleteall(curPath);
+          }
+        } else {
+          // delete file
+          console.log("file", curPath);
+          fs.unlinkSync(curPath);
+        }
+      });
+      fs.rmdirSync(path);
+    }
+  }
+  deleteall(fileSelector.path);
+  console.log(fileSelector);
 }
 
 function exec(script: string) {

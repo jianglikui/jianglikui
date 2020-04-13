@@ -1,6 +1,10 @@
 async function main() {
   await exec(`git add .`);
   await exec(`git commit -m "build ${new Date()}"`);
+  await exec(`git pull`);
+  await exec(`git push`);
+  await exec(`git checkout master`);
+  await exec(`git merge develop`);
 }
 
 function exec(script: string) {

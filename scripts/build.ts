@@ -7,17 +7,17 @@ async function main() {
 
   await exec(`git add .`);
   await exec(`git commit -m "build ${new Date()}"`);
-  await exec(`git pull`);
-  await exec(`git push`);
+  // await exec(`git pull`);
+  // await exec(`git push`);
   await exec(`git checkout master`);
   await exec(`git merge ${branch}`);
   cleanMasterBranch({
     path: ".",
     excludesFloder: ["dist", ".git", "node_modules"],
-    excludesFile: ["yarn-error.log"]
+    excludesFile: ["yarn-error.log", ".gitignore"]
   });
-  await exec(`git pull`);
-  await exec(`git push`);
+  // await exec(`git pull`);
+  // await exec(`git push`);
   await exec(`git checkout ${branch}`);
 }
 

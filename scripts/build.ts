@@ -50,7 +50,12 @@ function cleanMasterBranch(fileSelector: FileSelector) {
         } else {
           // delete file
           console.log("file", curPath);
-          fs.unlinkSync(curPath);
+          if (
+            fileSelector.excludesFile.filter(f => curPath.indexOf(f) === -1)
+              .length === 0
+          ) {
+            fs.unlinkSync(curPath);
+          }
         }
       });
       fs.rmdirSync(path);

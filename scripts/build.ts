@@ -49,7 +49,6 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           }
         } else {
           // delete file
-          console.log("file", curPath);
           if (
             fileSelector.excludesFile.filter(f => curPath.indexOf(f) === -1)
               .length === 0
@@ -59,6 +58,7 @@ function cleanMasterBranch(fileSelector: FileSelector) {
         }
       });
       if (path !== fileSelector.path) {
+        console.log("del", path);
         fs.rmdirSync(path);
       }
     }

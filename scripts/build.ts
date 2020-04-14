@@ -29,45 +29,8 @@ interface FileSelector {
 
 function cleanMasterBranch(fileSelector: FileSelector) {
   var fs = require("fs");
-
-  function deleteall(path: string) {
-    var files = [];
-    if (fs.existsSync(path)) {
-      files = fs.readdirSync(path);
-      files.forEach(function(file: string, index: number) {
-        var curPath = path + "/" + file;
-        if (fs.statSync(curPath).isDirectory()) {
-          // recurse
-          const canDel =
-            fileSelector.excludesFloder.filter(f => {
-              const isExc = curPath.substr(0, f.length + 3) === ".//" + f;
-              if (isExc) {
-                console.log(curPath.substr(0, f.length + 3), "||", ".//" + f);
-              }
-              return isExc;
-            }).length === 0;
-          console.log(canDel, "recurse", curPath);
-
-          if (canDel && curPath !== path) {
-            deleteall(curPath);
-          }
-        } else {
-          // delete file
-          if (
-            fileSelector.excludesFile.filter(f => curPath.indexOf(f) === -1)
-              .length === 0
-          ) {
-            fs.unlinkSync(curPath);
-          }
-        }
-      });
-      if (path !== fileSelector.path) {
-        console.log("del", path);
-        fs.rmdirSync(path);
-      }
-    }
-  }
-  deleteall(fileSelector.path);
+  const s = fs.readFile(".gitignore");
+  console.log(s);
 }
 
 function exec(script: string) {

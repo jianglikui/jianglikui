@@ -40,6 +40,7 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           // recurse
           const canDel =
             fileSelector.excludesFloder.filter(f => {
+              console.log(curPath.substr(0, f.length), " || ", f);
               return curPath.substr(0, f.length) !== ".//" + f;
             }).length === 0;
           console.log(canDel, "recurse", curPath);
@@ -64,7 +65,6 @@ function cleanMasterBranch(fileSelector: FileSelector) {
     }
   }
   deleteall(fileSelector.path);
-  console.log(fileSelector);
 }
 
 function exec(script: string) {

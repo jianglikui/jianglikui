@@ -58,6 +58,7 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           }
         }
       });
+      console.log(123, path);
       fs.rmdirSync(path);
     }
   }

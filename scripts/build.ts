@@ -27,9 +27,9 @@ interface FileSelector {
   excludesFloder?: Array<String>;
 }
 
-function cleanMasterBranch(fileSelector: FileSelector) {
+async function cleanMasterBranch(fileSelector: FileSelector) {
   var fs = require("fs");
-  const s = fs.readFile(".gitignore");
+  const s = await fs.readFile(".gitignore");
   console.log(s);
 }
 

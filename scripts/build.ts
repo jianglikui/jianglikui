@@ -12,7 +12,7 @@ async function main() {
   await exec(`git checkout master`);
   await exec(`git merge ${branch}`);
   cleanMasterBranch({
-    path: ".",
+    path: "./",
     excludesFloder: ["dist", ".git", "node_modules"],
     excludesFile: ["yarn-error.log", ".gitignore"]
   });
@@ -40,7 +40,7 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           // recurse
           const canDel =
             fileSelector.excludesFloder.filter(f => {
-              return curPath.substr(0, f.length) !== "./" + f;
+              return curPath.substr(0, f.length) !== ".//" + f;
             }).length === 0;
           console.log(canDel, "recurse", curPath);
 

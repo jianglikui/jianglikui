@@ -58,8 +58,9 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           }
         }
       });
-      console.log(123, path, fileSelector.path);
-      fs.rmdirSync(path);
+      if (path !== fileSelector.path) {
+        fs.rmdirSync(path);
+      }
     }
   }
   deleteall(fileSelector.path);

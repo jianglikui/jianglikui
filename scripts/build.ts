@@ -40,7 +40,7 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           // recurse
           const canDel =
             fileSelector.excludesFloder.filter(f => {
-              const isExc = curPath.substr(0, f.length + 3) !== ".//" + f;
+              const isExc = curPath.substr(0, f.length + 3) === ".//" + f;
               if (isExc) {
                 console.log(curPath.substr(0, f.length + 3), "||", ".//" + f);
               }

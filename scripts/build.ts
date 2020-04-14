@@ -52,7 +52,8 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           console.log("file", curPath);
           if (
             fileSelector.excludesFile.filter(f => curPath.indexOf(f) === -1)
-              .length === 0
+              .length === 0 &&
+            curPath !== path
           ) {
             fs.unlinkSync(curPath);
           }

@@ -52,14 +52,13 @@ function cleanMasterBranch(fileSelector: FileSelector) {
           console.log("file", curPath);
           if (
             fileSelector.excludesFile.filter(f => curPath.indexOf(f) === -1)
-              .length === 0 &&
-            curPath !== path
+              .length === 0
           ) {
             fs.unlinkSync(curPath);
           }
         }
       });
-      console.log(123, path);
+      console.log(123, path, fileSelector.path);
       fs.rmdirSync(path);
     }
   }

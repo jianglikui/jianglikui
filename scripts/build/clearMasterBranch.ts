@@ -38,7 +38,6 @@ export async function cleanMasterBranch(fileSelector: FileSelector) {
     });
   }
   removeChildren(resolve(fileSelector.path));
-  renameSync(resolve(fileSelector.path), resolve("/"));
 }
 
 function getExcludes(excludesStringArray: Array<string>) {

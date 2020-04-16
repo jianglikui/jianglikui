@@ -8,7 +8,6 @@ if (module.hot) {
 
 ReactDOM.render(
   <>
-    123
     <Launcher />
   </>,
   document.getElementById("root")

@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "fs";
+import { readFileSync, readdirSync, statSync, unlinkSync } from "fs";
 import { resolve } from "path";
 
 interface FileSelector {
@@ -43,7 +43,7 @@ export async function cleanMasterBranch(fileSelector: FileSelector) {
         removeChildren(item);
       } else if (!isExc(item)) {
         //不是文件夹，且不是排除文件
-        console.log(item);
+        unlinkSync(item);
       }
     });
   }

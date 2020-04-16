@@ -8,7 +8,6 @@ async function main() {
     .filter((line) => line.indexOf("*") !== -1)[0]
     .split(" ")[1];
 
-  await exec(`git status`);
   await exec(`git add .`);
   await exec(`git commit -m "build ${new Date()}"`);
   // await exec(`git pull`);
@@ -19,6 +18,8 @@ async function main() {
     path: "./",
     excludes: ["yarn-error.log", ".gitignore", "dist", ".git", "node_modules"],
   });
+  await exec(`git add .`);
+  await exec(`git commit -m "clear ${new Date()}"`);
   // await exec(`git pull`);
   // await exec(`git push`);
   await exec(`git checkout ${branch}`);

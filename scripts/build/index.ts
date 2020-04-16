@@ -30,6 +30,7 @@ async function main() {
   await exec(`git pull`);
   await exec(`git push`);
   await exec(`git checkout ${branch}`);
+  console.log("build succ");
 }
 
 main();

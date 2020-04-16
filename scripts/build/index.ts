@@ -16,7 +16,14 @@ async function main() {
   await exec(`git merge ${branch}`);
   cleanMasterBranch({
     path: "./",
-    excludes: ["yarn-error.log", ".gitignore", "dist", ".git", "node_modules"],
+    excludes: [
+      "yarn-error.log",
+      ".gitignore",
+      "dist",
+      ".git",
+      "node_modules",
+      "scripts",
+    ],
   });
   await exec(`git add .`);
   await exec(`git commit -m "clear ${new Date()}"`);

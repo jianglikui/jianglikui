@@ -47,6 +47,11 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-13.11.0.tgz#390ea202539c61c8fa6ba4428b57e05bc36dc47b"
   integrity sha1-OQ6iAlOcYcj6a6RCi1fgW8NtxHs=
 
+"@types/node@^13.11.1":
+  version "13.11.1"
+  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-13.11.1.tgz#49a2a83df9d26daacead30d0ccc8762b128d53c7"
+  integrity sha1-SaKoPfnSbarOrTDQzMh2KxKNU8c=
+
 "@types/prop-types@*":
   version "15.7.3"
   resolved "https://registry.npm.taobao.org/@types/prop-types/download/@types/prop-types-15.7.3.tgz?cache=0&sync_timestamp=1580843789977&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fprop-types%2Fdownload%2F%40types%2Fprop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"

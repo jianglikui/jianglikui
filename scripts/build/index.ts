@@ -20,8 +20,8 @@ async function main() {
   });
   await exec(`git add .`);
   await exec(`git commit -m "clear ${new Date()}"`);
-  // await exec(`git pull`);
-  // await exec(`git push`);
+  await exec(`git pull`);
+  await exec(`git push`);
   await exec(`git checkout ${branch}`);
 }
 

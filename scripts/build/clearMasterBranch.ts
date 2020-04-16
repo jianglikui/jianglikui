@@ -1,26 +1,16 @@
-import { readFileSync, readdirSync, statSync, unlinkSync } from "fs";
+import {
+  readFileSync,
+  readdirSync,
+  statSync,
+  unlinkSync,
+  renameSync,
+} from "fs";
 import { resolve } from "path";
 
 interface FileSelector {
   path: string;
   excludes?: Array<string>;
 }
-
-// let fs = require("fs");
-// let path = require("path");
-// function de(dirpath) {
-//   let fileList = fs.readdirSync(dirpath);
-//   fileList.forEach((x) => {
-//     let p = path.resolve(dirpath, x);
-//     let pinfo = fs.statSync(p);
-//     if (pinfo.isFile()) {
-//       fs.unlinkSync(p);
-//     } else if (pinfo.isDirectory()) {
-//       de(p);
-//     }
-//   });
-//   fs.rmdirSync(dirpath);
-// }
 
 export async function cleanMasterBranch(fileSelector: FileSelector) {
   const excludes = getExcludes(fileSelector.excludes);
@@ -48,6 +38,7 @@ export async function cleanMasterBranch(fileSelector: FileSelector) {
     });
   }
   removeChildren(resolve(fileSelector.path));
+  renameSync(resolve(fileSelector.path), resolve("/"));
 }
 
 function getExcludes(excludesStringArray: Array<string>) {

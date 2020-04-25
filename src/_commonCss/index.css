@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: url("/assets/bg2.jpg") center;
+  /* background: url("/_assets/bg2.jpg") center; */
   background-size: cover;
   min-height: 100vh;
   font-size: 14px;

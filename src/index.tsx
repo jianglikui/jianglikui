@@ -1,14 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./commonCss/index.css";
-import Launcher from "./Launcher";
+import "./_commonCss/index.css";
+import Login from "./Login";
 if (module.hot) {
   module.hot.accept();
 }
 
 ReactDOM.render(
   <>
-    <Launcher />
+    <Login />
   </>,
   document.getElementById("root")
 );

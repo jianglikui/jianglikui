@@ -28,5 +28,6 @@ function handleHistoryChange(location) {
       break;
   }
 }
-history.listen(handleHistoryChange);
+const a = history.listen(handleHistoryChange);
+console.log(a);
 handleHistoryChange(location);
